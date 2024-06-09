@@ -1,0 +1,434 @@
+{
+	"id": "c36f7da9-aeb7-41bf-8443-53b278b8c67f",
+	"name": "Art_gallery",
+	"timestamp": "2024-06-06T05:49:37.311Z",
+	"collection_id": "33813945-4267885f-f950-4b4e-a8c8-b6fb9dd18b1b",
+	"folder_id": 0,
+	"environment_id": "33813945-746f0a67-13ec-4a0a-903a-559b7c24f8a6",
+	"totalPass": 16,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-06-06T05:49:35.891Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "3ce39ed2-1253-4a83-8494-aa8d007db045",
+			"name": "all-artists",
+			"url": "http://127.0.0.1:5000//artists",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should contain an array of artists": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should contain an array of artists": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should contain an array of artists": true
+				}
+			]
+		},
+		{
+			"id": "6426cbe5-826f-4f5f-ae80-1260e541f9f7",
+			"name": "login",
+			"url": "http://127.0.0.1:5000//login",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				5
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0f8eba10-95b4-435a-83b9-bc0ea2fa4666",
+			"name": "add-artist",
+			"url": "http://127.0.0.1:5000//artists",
+			"time": 7,
+			"responseCode": {
+				"code": 201,
+				"name": "CREATED"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Response should have a name and bio": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should have a name and bio": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Response should have a name and bio": true
+				}
+			]
+		},
+		{
+			"id": "11a0a4a8-eab5-4be3-892e-dfcb344751dc",
+			"name": "artist-by-id",
+			"url": "http://127.0.0.1:5000//artists/35",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "d2dbe47a-abf1-4f2c-93d3-a31bd6254c15",
+			"name": "update-artist",
+			"url": "http://127.0.0.1:5000//artists/35",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should have updated name and bio": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should have updated name and bio": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should have updated name and bio": true
+				}
+			]
+		},
+		{
+			"id": "c4e69544-b277-418e-b845-32e12b5f4e5e",
+			"name": "delete-artist",
+			"url": "http://127.0.0.1:5000//artists/35",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response message should indicate success": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response message should indicate success": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response message should indicate success": true
+				}
+			]
+		},
+		{
+			"id": "f8e0b18f-0cff-4d1d-81cb-64f12cb73e8f",
+			"name": "all-artifacts",
+			"url": "http://127.0.0.1:5000//artifacts?username=Danny&password=1234",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "80032442-7ed8-4ded-b5e7-3633efbaee10",
+			"name": "add-artifact",
+			"url": "http://127.0.0.1:5000//artifacts?username=Danny&password=1234",
+			"time": 8,
+			"responseCode": {
+				"code": 201,
+				"name": "CREATED"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d9fe0b02-fb5e-4927-8c39-e7b0108f05b5",
+			"name": "artifact-by-id",
+			"url": "http://127.0.0.1:5000//artifacts/54",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "408fe3ff-ec29-4e0f-8e98-b918adc06043",
+			"name": "update-artifact",
+			"url": "http://127.0.0.1:5000//artifacts/54",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "900632a5-9dcf-4b5c-b96a-34c70aa60c8a",
+			"name": "delete-artifact",
+			"url": "http://127.0.0.1:5000//artifacts/54",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response message should indicate success": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response message should indicate success": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response message should indicate success": true
+				}
+			]
+		},
+		{
+			"id": "7c911bff-ada9-4885-8a8e-fc3daf67bc3e",
+			"name": "all-users",
+			"url": "http://127.0.0.1:5000//users",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should contain an array of artists": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should contain an array of artists": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should contain an array of artists": true
+				}
+			]
+		},
+		{
+			"id": "42777cd2-848f-4c04-86cc-875db86a1c4b",
+			"name": "add-user",
+			"url": "http://127.0.0.1:5000//register",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Create User": true
+			},
+			"testPassFailCounts": {
+				"Create User": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Create User": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 97,
+	"collection": {
+		"requests": [
+			{
+				"id": "3ce39ed2-1253-4a83-8494-aa8d007db045",
+				"method": "GET"
+			},
+			{
+				"id": "6426cbe5-826f-4f5f-ae80-1260e541f9f7",
+				"method": "POST"
+			},
+			{
+				"id": "0f8eba10-95b4-435a-83b9-bc0ea2fa4666",
+				"method": "POST"
+			},
+			{
+				"id": "11a0a4a8-eab5-4be3-892e-dfcb344751dc",
+				"method": "GET"
+			},
+			{
+				"id": "d2dbe47a-abf1-4f2c-93d3-a31bd6254c15",
+				"method": "PUT"
+			},
+			{
+				"id": "c4e69544-b277-418e-b845-32e12b5f4e5e",
+				"method": "DELETE"
+			},
+			{
+				"id": "f8e0b18f-0cff-4d1d-81cb-64f12cb73e8f",
+				"method": "GET"
+			},
+			{
+				"id": "80032442-7ed8-4ded-b5e7-3633efbaee10",
+				"method": "POST"
+			},
+			{
+				"id": "d9fe0b02-fb5e-4927-8c39-e7b0108f05b5",
+				"method": "GET"
+			},
+			{
+				"id": "408fe3ff-ec29-4e0f-8e98-b918adc06043",
+				"method": "PUT"
+			},
+			{
+				"id": "900632a5-9dcf-4b5c-b96a-34c70aa60c8a",
+				"method": "DELETE"
+			},
+			{
+				"id": "7c911bff-ada9-4885-8a8e-fc3daf67bc3e",
+				"method": "GET"
+			},
+			{
+				"id": "42777cd2-848f-4c04-86cc-875db86a1c4b",
+				"method": "POST"
+			}
+		]
+	}
+}
