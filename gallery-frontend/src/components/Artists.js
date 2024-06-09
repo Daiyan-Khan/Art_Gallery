@@ -25,6 +25,18 @@ function Artists() {
         setNewArtist({ name: '', bio: '' });
     };
 
+    const handleDeleteArtist = async (artistId) => {
+        try {
+            await axios.delete(`/artists/${artistId}`); // Delete request with artist ID
+            const remainingArtists = artists.filter(artist => artist.id !== artistId);
+            setArtists(remainingArtists);
+        } catch (error) {
+            console.error('Error deleting artist:', error);
+            // Handle error appropriately (e.g., display error message to the user)
+        }
+    };
+    
+
     return (
         <div>
             <h1>Artists</h1>
@@ -45,13 +57,16 @@ function Artists() {
                 />
                 <button type="submit">Add Artist</button>
             </form>
-            <ul>
+            <ol>
                 {artists.map((artist) => (
                     <li key={artist.id}>
                         {artist.name} - {artist.bio}
+                        <button onClick={() => handleDeleteArtist(artist.id)}>Delete</button>
                     </li>
+                    
                 ))}
-            </ul>
+                
+            </ol>
         </div>
     );
 }
