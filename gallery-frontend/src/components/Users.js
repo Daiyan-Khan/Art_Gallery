@@ -13,45 +13,31 @@ function Users() {
         const response = await axios.get('/users');
         setUsers(response.data);
     };
-
-    const handleChange = (e) => {
-        setNewUser({ ...newUser, [e.target.name]: e.target.value });
+    const handleDeleteUser = async (userId) => {
+        try {
+            await axios.delete(`/users/${userId}`); // Delete request with artist ID
+            const remainingUsers = users.filter(user => user.id !== userId);
+            setUsers(remainingUsers);
+        } catch (error) {
+            console.error('Error deleting user:', error);
+            // Handle error appropriately (e.g., display error message to the user)
+        }
     };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        await axios.post('/users', newUser);
-        fetchUsers();
-        setNewUser({ username: '', email: '' });
-    };
-
+      
+    
     return (
         <div>
             <h1>Users</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="username"
-                    value={newUser.username}
-                    onChange={handleChange}
-                    placeholder="Username"
-                />
-                <input
-                    type="email"
-                    name="email"
-                    value={newUser.email}
-                    onChange={handleChange}
-                    placeholder="Email"
-                />
-                <button type="submit">Add User</button>
-            </form>
-            <ul>
+            <ol>
                 {users.map((user) => (
                     <li key={user.id}>
                         {user.username} - {user.email}
+                        <button onClick={() => handleDeleteUser(user.id)}>
+              Delete
+            </button>
                     </li>
                 ))}
-            </ul>
+            </ol>
         </div>
     );
 }
