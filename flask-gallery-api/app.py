@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for,jsonify,request,current_app,render_template,flash
+from flask import Flask, redirect, url_for,request,render_template,flash
 from models.user import User
 from controllers.artists_controller import artists_blueprint
 from controllers.artifacts_controller import artifacts_blueprint
@@ -8,7 +8,7 @@ from persistence import artists_repository
 from persistence import users_repository
 from utils.database import Database, db
 import config
-from flask_login import LoginManager, login_required,FlaskLoginClient,login_user,current_user
+from flask_login import LoginManager,FlaskLoginClient,login_user,current_user
 from flask_cors import CORS
 
 
