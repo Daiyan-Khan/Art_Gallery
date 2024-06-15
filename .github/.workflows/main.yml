@@ -14,10 +14,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: '3.9'
 
@@ -25,32 +25,39 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
 
-    - name: Run tests
-      run: |
-        pytest
+      - name: Install Dependencies
+        run: |
+          cd gallery-frontend
+          npm install
+
+      - name: Build Project
+        run: |
+          cd gallery-frontend
+          npm run build
+
+      - name: Upload artifact to enable deployment
+        uses: actions/upload-artifact@v3
+        with:
+          name: poduction file
+          path: ./gallery-frontend/build
 
   deploy:
-    needs: build
+    needs: build,
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: poduction file
+          path: ./gallery-frontend/build
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.9'
-
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-
-    - name: Deploy to Heroku
-      env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: |
-        git remote add heroku https://git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
-        git push heroku main
+      - name: Deploy to GitHub Pages
+        uses: Daiyan-Khan/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.KEY }} #this is the key of the access token
+          publish_dir: ./gallery-frontend/build
