@@ -25,14 +25,17 @@ Database.initialize(app)
 
 login_manager.login_view = 'login'  # Redirect to login on unauthorized access
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
 
 # Register the blueprints
 app.register_blueprint(artists_blueprint)
 app.register_blueprint(artifacts_blueprint)
 app.register_blueprint(users_blueprint)
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -57,6 +60,7 @@ def login():
 
     return render_template('login.html')
 
+
 app.config['artifact_repo'] = artifacts_repository.ArtifactRepository()
 app.config['artist_repo'] = artists_repository.ArtistRepository()
 app.config['user_repo'] = users_repository.UserRepository()
@@ -65,12 +69,15 @@ app.config['user_repo'] = users_repository.UserRepository()
 with app.app_context():
     db.create_all()
 
+
 app.test_client_class = FlaskLoginClient
+
 
 # Root route redirecting to /artists
 @app.route('/')
 def index():
     return redirect(url_for('artists.get_all_artists'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
